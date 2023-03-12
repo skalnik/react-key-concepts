@@ -16,11 +16,11 @@ function ProductList() {
 
   return (
     <>
-      <button style={{margin: '20px 0 0 45px'}} onClick={addProduct}>Add Product</button>
-      <ul style={{listStyle: 'none'}}>
+      <button style={{margin: '20px 0 0 10px'}} onClick={addProduct}>Add Product</button>
+      <ul style={{listStyle: 'none', padding: '5px', margin: 0}}>
       {
         products.map((product, index) => {
-          return <li key={index} style={{background: '#eee', padding: '5px', margin: '5px', borderBottom: '1px solid #bbb'}}>
+          return <li key={index} style={{background: '#eee', padding: '5px', margin: '5px ', borderBottom: '1px solid #bbb'}}>
             {product.name} (${product.price})
           </li>
         })
