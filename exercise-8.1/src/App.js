@@ -1,14 +1,24 @@
 import BlogPosts from './components/BlogPosts';
 import NewPost from './components/NewPost';
+import { useState, useEffect } from 'react';
 
 function App() {
-  // Todo: Fetch blog posts from https://jsonplaceholder.typicode.com/posts (see documentation on https://jsonplaceholder.typicode.com/guide/)
-  // Pass fetched posts to <BlogPost /> via props & output the posts in that component
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    async function fetchPosts() {
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+      const responsePosts = await response.json();
+      setPosts(responsePosts)
+    }
+
+    fetchPosts()
+  }, [])
 
   return (
     <>
       <NewPost />
-      <BlogPosts />
+      <BlogPosts posts={posts} />
     </>
   );
 }
