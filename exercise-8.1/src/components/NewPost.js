@@ -9,7 +9,7 @@ function NewPost() {
     setEnteredTitle(event.target.value);
   }
 
-  function submitHandler(event) {
+  async function submitHandler(event) {
     event.preventDefault();
     setSending(true)
     await fetch("https://jsonplaceholder.typicode.com/posts", {
